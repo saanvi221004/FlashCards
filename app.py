@@ -8,8 +8,7 @@ app.secret_key = os.getenv("FLASK_SECRET_KEY", "default_secret_key")
 
 # Database Configuration (if using external DB)
 DATABASE = os.getenv("DATABASE_URL", "flashcards.db")
-# Database setup
-#DATABASE = 'flashcards.db'
+
 
 @app.route('/')
 def welcome():
