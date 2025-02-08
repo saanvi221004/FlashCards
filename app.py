@@ -1,10 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
+import os
 
 app = Flask(__name__)
+# Load Secret Key from Environment Variable
+app.secret_key = os.getenv("FLASK_SECRET_KEY", "default_secret_key")
 
+# Database Configuration (if using external DB)
+DATABASE = os.getenv("DATABASE_URL", "flashcards.db")
 # Database setup
-DATABASE = 'flashcards.db'
+#DATABASE = 'flashcards.db'
 
 @app.route('/')
 def welcome():
